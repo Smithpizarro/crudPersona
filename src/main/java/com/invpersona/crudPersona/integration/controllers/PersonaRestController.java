@@ -184,14 +184,12 @@ public class PersonaRestController {
 				     ) {
 
 					 if(Util.validacionPlaneta(personadto.getPlanet())==0) {
-							
 						 errorModelDTO = new ErrorModelDTO(Constantes.CodigoError.PLANETA_NO_EXISTE.getCodigo(),
 									Constantes.CodigoError.PLANETA_NO_EXISTE.getMensage());
 							return new ResponseEntity<Object>(errorModelDTO, HttpStatus.INTERNAL_SERVER_ERROR); 
 						 
 					 }else {
-						 
-						 personadtotmp = personaservice.updatePersona(personadto);
+						 personadtotmp = personaservice.createPersona(personadto);
 							return new ResponseEntity<Object>(personadtotmp, HttpStatus.CREATED);
 					 }
 					
